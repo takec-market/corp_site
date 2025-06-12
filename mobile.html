@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take-C&M - モバイル版</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        form button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        form button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>Take-C&M</div>
+        <nav>
+            <a href="#about">会社概要</a>
+            <a href="#services">サービス紹介</a>
+            <a href="#contact">お問い合わせ</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>会社概要</h2>
+            <ul>
+                <li><strong>設立：</strong>2025年2月21日</li>
+                <li><strong>従業員：</strong>2人</li>
+                <li><strong>沿革：</strong>株式会社シーエー・モバイル、株式会社GameWithなどを経て2020年に独立。フリーランスとしてコンサルティングおよびマネジメント業務を手がけ、2025年2月に法人化。</li>
+                <li><strong>所在地：</strong>東京都荒川区南千住3-37-4-301</li>
+                <li><strong>Email：</strong><a href="mailto:maruyama.takeshi@takec.jp">maruyama.takeshi@takec.jp</a></li>
+                <li><strong>Tel：</strong><a href="tel:05012301990">(050) 1230-1990</a></li>
+            </ul>
+        </section>
+
+        <section id="services">
+            <h2>サービス紹介</h2>
+            <ul>
+                <li><strong>サーバレスサイトへの移行：</strong>オンプレミス環境からクラウドネイティブなサーバレス構成へ移行。可用性と拡張性を確保しつつ、運用コストを大幅に削減。静的ホスティングやAPI Gatewayを活用し、セキュアかつ高速なWeb環境を実現。</li>
+                <li><strong>LINEチャットボットの導入：</strong>カスタマーサポート業務の効率化を目的に、LINE連携型チャットボットを構築。</li>
+                <li><strong>クーポンとして利用できるNFT：</strong>取引履歴を記録し、還元ポイントをクーポン代わりに使用できるNFTを発行。</li>
+                <li><strong>コンサルティング・開発支援業務：</strong>サービス設計、企画からチームビルディングやマネジメントまで幅広い領域で企業を支援。顧客のニーズに合わせた技術的課題の解決やアーキテクチャ設計を提供し、効率的かつ効果的なプロジェクト推進を実現。</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>お問い合わせ</h2>
+            <p>メール: <a href="mailto:maruyama.takeshi@takec.jp">maruyama.takeshi@takec.jp</a></p>
+            <p>電話: (050) 1230-1990</p>
+            <form>
+                <input type="text" placeholder="お名前" required>
+                <input type="email" placeholder="メールアドレス" required>
+                <textarea placeholder="お問い合わせ内容" required></textarea>
+                <button type="submit">送信</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        © 2025 Take-C&M. All rights reserved.
+    </footer>
+</body>
+</html>
