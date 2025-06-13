@@ -1,407 +1,84 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Take-C&amp;M - デスクトップ風サイト</title>
+    <title>Take-C&M</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://unpkg.com/winbox@0.2.82/dist/winbox.bundle.min.js"></script>
-    <script>if (window.innerWidth <= 768) { window.location.href = "mobile.html"; }</script>
     <style>
-        body {
-            margin: 0;
-            background: url('./img/desktop.jpg') no-repeat center center fixed;
-            background-size: cover;
-            font-family: sans-serif;
-            overflow: hidden;
-            color: #000;
-        }
-
-        .taskbar {
-            position: absolute;
-            bottom: 0;
+        html { scroll-behavior: smooth; }
+        .hero img {
             width: 100%;
-            background: rgba(45, 45, 48, 0.8);
-            color: white;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 10px;
-            z-index: 100;
+            height: auto;
+            display: block;
+            border-bottom: 3px solid #0066cc;
         }
-
-        .taskbar button {
-            background: transparent;
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        form button {
+            background: #0066cc;
+            color: #fff;
             border: none;
-            padding: 0;
+            padding: 10px 20px;
+            border-radius: 4px;
             cursor: pointer;
-        }
-
-        .taskbar button img {
-            width: 40px;
-            height: 40px;
-        }
-
-        .content {
-            display: none;
-            padding: 10px;
-        }
-
-        .desktop-icons {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .desktop-icon {
-            text-align: center;
-            color: white;
-            cursor: pointer;
-            text-shadow: 1px 1px 2px #000;
-        }
-
-        .desktop-icon img {
-            width: 64px;
-            height: 64px;
-        }
-
-        .terminal {
-            background: black;
-            color: #00ff00;
-            font-family: 'Courier New', monospace;
-            padding: 20px;
-            white-space: pre-wrap;
-            min-height: 300px;
-            overflow: auto;
-            display: none;
-        }
-
-        .cursor {
-            display: inline-block;
-            width: 10px;
-            background-color: #00ff00;
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            50% {
-                background-color: transparent;
-            }
-        }
-
-
-        #about {
-            background: url('./img/company.jpg') center/cover no-repeat;
-            transition: opacity 1s ease, background-image 1s ease;
-            color: white;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
-            border-radius: 20px;
-            position: relative;
-            padding: 60px 20px;
-        }
-
-        .fadein {
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        footer {
-            position: absolute;
-            bottom: 5px;
-            width: 100%;
-            text-align: center;
-            color: #ccc;
-            font-size: 0.8rem;
-            text-shadow: 1px 1px 2px #000;
-            z-index: 99;
         }
     </style>
 </head>
-
 <body>
-    <div class="desktop-icons">
-        <div class="desktop-icon" onclick="openCompanyTerminal()">
-            <img src="./img/square_icon_1.png" alt="会社概要">
-            <div>会社概要</div>
-        </div>
-        <div class="desktop-icon" onclick="openServices()">
-            <img src="./img/square_icon_2.png" alt="サービス紹介">
-            <div>サービス紹介</div>
-        </div>
-        <div class="desktop-icon" onclick="openContact()">
-            <img src="./img/square_icon_3.png" alt="お問い合わせ">
-            <div>お問い合わせ</div>
-        </div>
-    </div>
-
-    <div class="taskbar">
-        <button onclick="openAboutWindow()">
-            <img src="./img/square_icon_1.png" alt="会社概要">
-        </button>
-        <button onclick="openServices()">
-            <img src="./img/square_icon_2.png" alt="サービス紹介">
-        </button>
-        <button onclick="openContact()">
-            <img src="./img/square_icon_3.png" alt="お問い合わせ">
-        </button>
-    </div>
-
-    <!-- ウィンドウの中身（非表示） -->
-    <div id="about" class="content"
-        style="position: relative; padding: 60px 20px; background: url('./img/company.jpg') center/cover no-repeat; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.7); border-radius: 20px;">
-        <div
-            style="background-color: rgba(0, 0, 0, 0.5); padding: 40px; border-radius: 15px; max-width: 700px; margin: auto;">
-            <h2
-                style="font-size: 2em; margin-bottom: 20px; border-bottom: 2px solid #fff; display: inline-block; padding-bottom: 5px;">
-                会社概要</h2>
+    <header>
+        <div>Take-C&M</div>
+        <nav>
+            <a href="#about">会社概要</a>
+            <a href="#services">サービス紹介</a>
+            <a href="#contact">お問い合わせ</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <img src="./img/company2.jpg" alt="会社のイメージ">
+        </section>
+        <section id="about">
+            <h2>会社概要</h2>
             <ul>
                 <li><strong>設立：</strong>2025年2月21日</li>
                 <li><strong>従業員：</strong>2人</li>
-                <li><strong>沿革：</strong>株式会社シーエー・モバイル、株式会社GameWithなどを経て2020年に独立。フリーランスとしてコンサルティングおよびマネジメント業務を手がけ、2025年2月に法人化。
-                </li>
+                <li><strong>沿革：</strong>株式会社シーエー・モバイル、株式会社GameWithなどを経て2020年に独立。フリーランスとしてコンサルティングおよびマネジメント業務を手がけ、2025年2月に法人化。</li>
                 <li><strong>所在地：</strong>東京都荒川区南千住3-37-4-301</li>
-                <li><strong>Email：</strong><a href="mailto:maruyama.takeshi@takec.jp"
-                        style="color: #aad8ff;">maruyama.takeshi@takec.jp</a></li>
-                <li><strong>Tel：</strong><a href="tel:05012301990" style="color: #aad8ff;">(050) 1230-1990</a></li>
+                <li><strong>Email：</strong><a href="mailto:maruyama.takeshi@takec.jp">maruyama.takeshi@takec.jp</a></li>
+                <li><strong>Tel：</strong><a href="tel:05012301990">(050) 1230-1990</a></li>
             </ul>
-        </div>
-    </div>
-
-    <div id="services" class="content">
-        <h2>サービス紹介</h2>
-        <ul>
-            <li>
-                <strong>サーバレスサイトへの移行：</strong><br>
-                オンプレミス環境からクラウドネイティブなサーバレス構成へ移行。可用性と拡張性を確保しつつ、運用コストを大幅に削減。静的ホスティングやAPI Gatewayを活用し、セキュアかつ高速なWeb環境を実現。
-            </li>
-            <li>
-                <strong>LINEチャットボットの導入：</strong><br>
-                カスタマーサポート業務の効率化を目的に、LINE連携型チャットボットを構築。
-            </li>
-            <li>
-                <strong>クーポンとして利用できるNFT：</strong><br>
-                取引履歴を記録し、還元ポイントをクーポン代わりに使用できるNFTを発行。
-            </li>
-            <li>
-                <strong>コンサルティング・開発支援業務：</strong><br>
-                サービス設計、企画からチームビルディングやマネジメントまで幅広い領域で企業を支援。顧客のニーズに合わせた技術的課題の解決やアーキテクチャ設計を提供し、効率的かつ効果的なプロジェクト推進を実現。
-            </li>
-        </ul>
-    </div>
-
-    <div id="contact" class="content">
-        <h2>お問い合わせ</h2>
-        <p>メール: <a href="mailto:maruyama.takeshi@takec.jp">maruyama.takeshi@takec.jp</a></p>
-        <p>電話: (050) 1230-1990</p>
-        <form>
-            <input type="text" placeholder="お名前" required><br>
-            <input type="email" placeholder="メールアドレス" required><br>
-            <textarea placeholder="お問い合わせ内容" required></textarea><br>
-            <button type="submit">送信</button>
-        </form>
-    </div>
-    <div id="terminal" class="terminal"></div>
+        </section>
+        <section id="services">
+            <h2>サービス紹介</h2>
+            <ul>
+                <li><strong>サーバレスサイトへの移行：</strong>オンプレミス環境からクラウドネイティブなサーバレス構成へ移行。可用性と拡張性を確保しつつ、運用コストを大幅に削減。静的ホスティングやAPI Gatewayを活用し、セキュアかつ高速なWeb環境を実現。</li>
+                <li><strong>LINEチャットボットの導入：</strong>カスタマーサポート業務の効率化を目的に、LINE連携型チャットボットを構築。</li>
+                <li><strong>クーポンとして利用できるNFT：</strong>取引履歴を記録し、還元ポイントをクーポン代わりに使用できるNFTを発行。</li>
+                <li><strong>コンサルティング・開発支援業務：</strong>サービス設計、企画からチームビルディングやマネジメントまで幅広い領域で企業を支援。顧客のニーズに合わせた技術的課題の解決やアーキテクチャ設計を提供し、効率的かつ効果的なプロジェクト推進を実現。</li>
+            </ul>
+        </section>
+        <section id="contact">
+            <h2>お問い合わせ</h2>
+            <p>メール: <a href="mailto:maruyama.takeshi@takec.jp">maruyama.takeshi@takec.jp</a></p>
+            <p>電話: (050) 1230-1990</p>
+            <form>
+                <input type="text" placeholder="お名前" required>
+                <input type="email" placeholder="メールアドレス" required>
+                <textarea placeholder="お問い合わせ内容" required></textarea>
+                <button type="submit">送信</button>
+            </form>
+        </section>
+    </main>
     <footer>
-        © 2025 Take-C&amp;M. All rights reserved.
+        © 2025 Take-C&M. All rights reserved.
     </footer>
-
-    <script>
-        function openCompanyTerminal() {
-            const node = document.getElementById("terminal");
-            node.style.display = "block";
-
-            startTerminalAnimation();
-
-            terminalBox = new WinBox({
-                title: "会社概要",
-                width: "600px",
-                height: "400px",
-                x: "center",
-                y: "center",
-                mount: node,
-                onclose: () => {
-                    node.style.display = "none";
-                }
-            });
-        }
-
-        function openServices() {
-            const node = document.getElementById("services");
-            node.style.display = "block";
-            new WinBox({
-                title: "サービス紹介",
-                width: "500px",
-                height: "700px",
-                x: "center",
-                y: "center",
-                mount: node,
-                onclose: () => {
-                    node.style.display = "none";
-                }
-            });
-        }
-
-        function openContact() {
-            const node = document.getElementById("contact");
-            node.style.display = "block";
-            new WinBox({
-                title: "お問い合わせ",
-                width: "400px",
-                height: "400px",
-                x: "center",
-                y: "center",
-                mount: node,
-                onclose: () => {
-                    node.style.display = "none";
-                }
-            });
-        }
-        const commands = [
-            { type: 'command', text: 'whoami' },
-            { type: 'output', text: 'Takeshi Maruyama' },
-            { type: 'command', text: 'cat company-info.txt' },
-            { type: 'output', text: '設立: 2025年2月21日' },
-            { type: 'output', text: '従業員: 1人' },
-            { type: 'output', text: '沿革: 株式会社シーエーモバイル、株式会社GameWithなどを経て、' },
-            { type: 'output', text: '      2020年に独立。2025年に法人化。' },
-            { type: 'output', text: '住所: 東京都荒川区南千住3-47-301' },
-            { type: 'output', text: 'Email: maruyama.takeshi@takec.jp' },
-            { type: 'output', text: 'Tel: (050) 1230-1990' },
-            { type: 'command', text: 'docker run --publish 8000:8000 display-company-docker' },
-            { type: 'output', text: 'waiting...' },
-        ];
-
-        let commandIndex = 0;
-        const terminal = document.getElementById('terminal');
-
-        function typeCommand(text, callback) {
-            let i = 0;
-            const line = document.createElement('div');
-            terminal.appendChild(line);
-
-            const cursor = document.createElement('span');
-            cursor.className = 'cursor';
-            line.appendChild(cursor);
-
-            const typer = () => {
-                if (i < text.length) {
-                    cursor.insertAdjacentText('beforebegin', text[i]);
-                    i++;
-                    setTimeout(typer, 80);
-                } else {
-                    line.removeChild(cursor);
-                    callback();
-                }
-            };
-            typer();
-        }
-
-        function showOutput(text, callback) {
-            const line = document.createElement('div');
-            line.textContent = text;
-            terminal.appendChild(line);
-            setTimeout(callback, 400);
-        }
-
-        let terminalBox = null;
-
-
-
-        function startTerminalAnimation() {
-            terminal.innerHTML = "";
-            commandIndex = 0;
-            processNext();
-        }
-
-        function processNext() {
-            if (commandIndex >= commands.length) {
-                setTimeout(() => {
-                    // ✅ ここでterminalウィンドウを閉じる
-                    if (terminalBox) {
-                        terminalBox.close();
-                    }
-
-                    // ✅ 次にaboutウィンドウを開く
-                    openAboutWindow();
-
-                }, 2000);
-                return;
-            }
-
-            const item = commands[commandIndex++];
-            if (item.type === 'command') {
-                typeCommand(`> ${item.text}`, processNext);
-            } else {
-                showOutput(item.text, processNext);
-            }
-            terminal.scrollTop = terminal.scrollHeight;
-        }
-
-        function openAboutWindow() {
-            const about = document.getElementById("about");
-
-            // 初期設定
-            about.style.display = "block";
-            about.style.opacity = 0;
-            about.style.transition = "opacity 1s ease, background-image 1s ease";
-
-            const aboutBox = new WinBox({
-                title: "会社概要",
-                width: "700px",
-                height: "500px",
-                x: "center",
-                y: "center",
-                max: false,
-                min: false,
-                hidden: false,
-                mount: about,
-                class: ["no-full", "no-max"],
-                onclose: () => {
-                    about.style.display = "none";
-                }
-            });
-
-            // フェードイン
-            setTimeout(() => {
-                about.style.opacity = 1;
-            }, 100);
-
-            // 背景切り替えスケジュール
-            setTimeout(() => {
-                about.style.backgroundImage = "url('./img/company2.jpg')";
-            }, 2000);
-
-            setTimeout(() => {
-                about.style.backgroundImage = "url('./img/company3.jpg')";
-                // 🧼 まず従業員数を「1人」にリセット
-                const listItems = about.querySelectorAll("li");
-                for (const li of listItems) {
-                    if (li.textContent.includes("従業員")) {
-                        // 元の強調付きHTMLに戻す
-                        li.innerHTML = "<strong>従業員：</strong>2人";
-                    }
-                }
-                // 🪄 従業員数を「+1」表示に書き換え
-
-                for (const li of listItems) {
-                    if (li.textContent.includes("従業員：")) {
-                        li.innerHTML = li.innerHTML.replace("2人", "2人 <span style='color: #ffd700;'>+1<span style='font-size: 1.2em;'>🐾</span></span>");
-                        break;
-                    }
-                }
-            }, 4000);
-        }
-    </script>
 </body>
-
 </html>
